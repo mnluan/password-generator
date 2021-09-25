@@ -29,8 +29,8 @@ public class gui{
 	String aux = "";
 	
 	gui(){
-        windowGUI();
-    }
+        	windowGUI();
+    	}
 
 	public void windowGUI() {
 		frame=new JFrame();
@@ -45,60 +45,60 @@ public class gui{
 		frame.getContentPane().setLayout(null);
 		frame.setSize(440,168);
 		frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        	frame.setVisible(true);
+        	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        copyButton.setBounds(314,93,100,30);
-        frame.getContentPane().add(copyButton);
-        passwordLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        passwordLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        	copyButton.setBounds(314,93,100,30);
+        	frame.getContentPane().add(copyButton);
+        	passwordLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        	passwordLabel.setHorizontalAlignment(SwingConstants.CENTER);
         
-        passwordLabel.setBounds(10,11,404,30);
-        frame.getContentPane().add(passwordLabel);
+        	passwordLabel.setBounds(10,11,404,30);
+        	frame.getContentPane().add(passwordLabel);
         
-        genButton.setBounds(204,93,100,30);
-        frame.getContentPane().add(genButton);
-        cbxN.setEnabled(false);
-        cbxN.setSelected(true);
+        	genButton.setBounds(204,93,100,30);
+        	frame.getContentPane().add(genButton);
+        	cbxN.setEnabled(false);
+        	cbxN.setSelected(true);
         
-        cbxN.setBounds(6, 59, 82, 23);
-        frame.getContentPane().add(cbxN);
+        	cbxN.setBounds(6, 59, 82, 23);
+        	frame.getContentPane().add(cbxN);
         
-        cbxU.setBounds(90, 59, 112, 23);
-        frame.getContentPane().add(cbxU);
+        	cbxU.setBounds(90, 59, 112, 23);
+        	frame.getContentPane().add(cbxU);
         
-        cbxL.setBounds(204, 59, 112, 23);
-        frame.getContentPane().add(cbxL);
+        	cbxL.setBounds(204, 59, 112, 23);
+        	frame.getContentPane().add(cbxL);
         
-        cbxS.setBounds(314, 59, 97, 23);
-        frame.getContentPane().add(cbxS);
-        spinner.setModel(new SpinnerNumberModel(6, 6, 28, 2));
+        	cbxS.setBounds(314, 59, 97, 23);
+        	frame.getContentPane().add(cbxS);
+        	spinner.setModel(new SpinnerNumberModel(6, 6, 28, 2));
         
-        spinner.setBounds(10, 98, 37, 20);
-        frame.getContentPane().add(spinner);
+        	spinner.setBounds(10, 98, 37, 20);
+        	frame.getContentPane().add(spinner);
         
-        spinnerLabel.setBounds(57, 101, 137, 14);
-        frame.getContentPane().add(spinnerLabel);
+        	spinnerLabel.setBounds(57, 101, 137, 14);
+        	frame.getContentPane().add(spinnerLabel);
       
-        //Add Listeners
-        copyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                copy(evt);
-            }
-        });
-        genButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generate(evt);
-            }
-        });
+        	//Add Listeners
+        	copyButton.addActionListener(new java.awt.event.ActionListener() {
+            		public void actionPerformed(java.awt.event.ActionEvent evt) {
+                		copy(evt);
+            		}
+        	});
+        	genButton.addActionListener(new java.awt.event.ActionListener() {
+            		public void actionPerformed(java.awt.event.ActionEvent evt) {
+                		generate(evt);
+            		}
+        	});
 	}
 	
 	//Events
 	private void copy(java.awt.event.ActionEvent evt) {
 		String myString = passwordLabel.getText();
 		StringSelection stringSelection = new StringSelection (myString);
-        Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard ();
-        clpbrd.setContents (stringSelection, null);
+        	Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard ();
+        	clpbrd.setContents (stringSelection, null);
 	}
 	
 	private void generate(java.awt.event.ActionEvent evt) {
@@ -108,21 +108,21 @@ public class gui{
 		int num = (int) spinner.getValue();
 		
 		if (cbxL.isSelected()) {
-            charactersToBeUsed += lower;
-        }
+            		charactersToBeUsed += lower;
+        	}
 		if (cbxU.isSelected()) {
-            charactersToBeUsed += lower.toUpperCase();
-        }
+            		charactersToBeUsed += lower.toUpperCase();
+        	}
 		if (cbxS.isSelected()) {
-            charactersToBeUsed += special;
-        }
+            		charactersToBeUsed += special;
+        	}
 		String[] pass = charactersToBeUsed.split(",");
  		String pFinal="";
 
 		for (int x=0; x<num; x++){
-    		int j = (int) (Math.random()*pass.length);
-    		pFinal += pass[j];
-    	}
+    			int j = (int) (Math.random()*pass.length);
+    			pFinal += pass[j];
+    		}
 		passwordLabel.setText(pFinal);
 	}
 }
